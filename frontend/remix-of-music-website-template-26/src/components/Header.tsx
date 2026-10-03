@@ -3,11 +3,11 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { label: "Music", path: "/music" },
+  { label: "Artistas", path: "/music" },
   { label: "Merch", path: "/merch" },
-  { label: "Videos", path: "/videos" },
-  { label: "Tour", path: "/tour" },
-  { label: "Info", path: "/info" },
+/*  { label: "Videos", path: "/videos" }, */
+  { label: "Eventos", path: "/tour" },
+/*  { label: "Info", path: "/info" }, */
 ];
 
 const PillLabel = ({
@@ -59,8 +59,8 @@ const Header = () => {
           <div className="flex items-center gap-2">
             <PillLabel onClick={() => setMobileOpen(true)}>Menu</PillLabel>
             <div className="hidden lg:flex items-center gap-2">
-              <PillLabel href="https://instagram.com/cassidylane">
-                Instagram: @cassidylane
+              <PillLabel href="https://instagram.com/livevibe">
+                Instagram: @livevibe
               </PillLabel>
             </div>
           </div>
@@ -70,17 +70,17 @@ const Header = () => {
             to="/"
             className="font-display text-base md:text-lg text-foreground/70 tracking-[0.2em] hover:text-foreground transition-colors"
           >
-            Cassidy Lane
+             LiveVibe
           </Link>
 
           {/* Right cluster */}
           <div className="flex items-center gap-2">
             <div className="hidden md:flex items-center gap-2">
-              <PillLabel href="mailto:booking@cassidylane.com">
-                Booking: booking@cassidylane.com
+              <PillLabel href="mailto:booking@livevibe.com">
+                Contacto: contacto@livevibe.com
               </PillLabel>
             </div>
-            <PillLabel href="https://twitter.com/cassidylane" accent={false}>
+            <PillLabel href="https://twitter.com/livevibe" accent={false}>
               <span className="w-1.5 h-1.5 bg-foreground/40 rounded-sm" />
               TW
             </PillLabel>

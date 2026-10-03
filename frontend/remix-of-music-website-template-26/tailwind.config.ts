@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["'Anton'", "sans-serif"],
-        body: ["'Space Grotesk'", "sans-serif"],
+        display: ["'Bungee'", "sans-serif"],
+        body: ["'DM Sans'", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

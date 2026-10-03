@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
 import { bandInfo } from "@/data/mockData";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/livevibe-hero-bg.svg";
 
 const InfoPage = () => (
   <div className="min-h-screen bg-background pt-24 pb-16 px-6">

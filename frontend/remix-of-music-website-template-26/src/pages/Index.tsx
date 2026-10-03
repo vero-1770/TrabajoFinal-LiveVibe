@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/livevibe-hero-bg.svg";
 import { useRef } from "react";
 
 const Index = () => {
@@ -29,7 +29,7 @@ const Index = () => {
       {/* Parallax hero image */}
         <motion.img
         src={heroBg}
-        alt="Cassidy Lane — golden hour portrait"
+        alt="LiveVibe"
         className="absolute inset-0 w-full h-full object-cover object-center"
         style={{ x: imgX, y: imgY, scale: 1.1 }}
       />
@@ -43,7 +43,7 @@ const Index = () => {
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
           className="font-display text-[22vw] md:text-[18vw] leading-[0.8] text-foreground/[0.22] text-center whitespace-nowrap pb-2 md:pb-4"
         >
-          CASSIDY LANE
+          LIVEVIBE
         </motion.h1>
       </div>
     </div>
