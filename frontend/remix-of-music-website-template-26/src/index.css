@@ -4,43 +4,50 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
+        /* Paleta de LiveVibe */
+    --background: 257 21% 6%;          /* negro tinta #0F0D14 */
+    --foreground: 36 100% 94.5%;       /* crema #FFF4E3 */
 
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 100%;
+    --card: 257 21% 10%;
+    --card-foreground: 36 100% 94.5%;
 
-    --popover: 0 0% 5%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 257 21% 10%;
+    --popover-foreground: 36 100% 94.5%;
 
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 331 100% 59%;           /* fucsia #FF2E93 */
+    --primary-foreground: 257 21% 6%;
 
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 257 21% 14%;
+    --secondary-foreground: 36 100% 94.5%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 257 16% 18%;
+    --muted-foreground: 36 25% 70%;
 
-    --accent: 0 0% 12%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 257 21% 16%;
+    --accent-foreground: 36 100% 94.5%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 0 0% 100%;
+    --border: 257 16% 22%;
+    --input: 257 16% 22%;
+    --ring: 201 87% 59%;               /* azul cielo #3DB4F2 */
 
     --radius: 0.5rem;
 
-    --glass-bg: 0 0% 100% / 0.05;
-    --glass-border: 0 0% 100% / 0.1;
-    --glass-hover: 0 0% 100% / 0.1;
+    /* Colores de acento de la marca (los usamos en los próximos pasos) */
+    --brand-sky: 201 87% 59%;          /* azul cielo #3DB4F2 */
+    --brand-yellow: 44 100% 59%;       /* amarillo #FFC62E */
+    --brand-orange: 25 100% 55%;       /* naranja #FF7A1A */
+    --brand-pink: 331 100% 80%;        /* rosa chicle #FF9ACB */
 
-    --status-available: 0 0% 100%;
+    --glass-bg: 36 100% 94% / 0.05;
+    --glass-border: 36 100% 94% / 0.1;
+    --glass-hover: 36 100% 94% / 0.1;
+
+    --status-available: 331 100% 59%;
     --status-sold-out: 0 72% 51%;
-    --status-presale: 45 93% 58%;
+    --status-presale: 44 100% 59%;
 
     --sidebar-background: 0 0% 3%;
     --sidebar-foreground: 0 0% 95%;
