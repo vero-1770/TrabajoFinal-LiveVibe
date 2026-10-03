@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 0% 100%;
+
+    --radius: 0.5rem;
+
+    --glass-bg: 0 0% 100% / 0.05;
+    --glass-border: 0 0% 100% / 0.1;
+    --glass-hover: 0 0% 100% / 0.1;
+
+    --status-available: 0 0% 100%;
+    --status-sold-out: 0 72% 51%;
+    --status-presale: 45 93% 58%;
+
+    --sidebar-background: 0 0% 3%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 0 0% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 8%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 0 0% 100%;
+
+    --font-display: 'Anton', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-sm border rounded-lg;
+    background: hsl(var(--glass-bg));
+    border-color: hsl(var(--glass-border));
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:scale-[1.02];
+    &:hover {
+      background: hsl(var(--glass-hover));
+    }
+  }
+
+  .text-muted-soft {
+    @apply text-foreground/60;
+  }
+
+  .text-muted-softer {
+    @apply text-foreground/40;
+  }
+
+  .label-uppercase {
+    @apply text-xs font-semibold text-foreground/50 uppercase tracking-[0.2em];
+    font-family: var(--font-body);
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--background) / 0.3) 0%,
+      hsl(var(--background) / 0.05) 40%,
+      hsl(var(--background) / 0.6) 100%
+    );
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold transition-colors;
+    &:hover {
+      @apply bg-primary/90;
+    }
+  }
+
+  .btn-secondary {
+    @apply text-foreground border px-6 py-3 rounded-full transition-colors;
+    background: hsl(var(--glass-bg));
+    border-color: hsl(var(--glass-border));
+    &:hover {
+      background: hsl(var(--glass-hover));
+    }
+  }
+
+  .platform-link {
+    @apply flex items-center justify-between rounded-lg p-4 border transition-colors;
+    background: hsl(var(--glass-bg));
+    border-color: hsl(var(--glass-border));
+    &:hover {
+      background: hsl(var(--glass-hover));
+    }
+  }
+
+  .status-available {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold;
+    &:hover {
+      @apply bg-primary/90;
+    }
+  }
+
+  .status-sold-out {
+    @apply px-6 py-3 rounded-full font-semibold;
+    background: hsl(var(--destructive) / 0.2);
+    color: hsl(var(--destructive));
+    border: 1px solid hsl(var(--destructive) / 0.3);
+  }
+
+  .status-presale {
+    @apply px-6 py-3 rounded-full font-semibold;
+    background: hsl(var(--status-presale) / 0.2);
+    color: hsl(var(--status-presale));
+    border: 1px solid hsl(var(--status-presale) / 0.3);
+  }
+
+  /* Scroll reveal animation */
+  .scroll-reveal {
+    @apply opacity-0 translate-y-8;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .scroll-reveal.revealed {
+    @apply opacity-100 translate-y-0;
+  }
+}
