@@ -15,6 +15,8 @@ import TourPage from "./pages/TourPage";
 import TourDetailPage from "./pages/TourDetailPage";
 import InfoPage from "./pages/InfoPage";
 import NotFound from "./pages/NotFound";
+import CommunityPage from "./pages/CommunityPage";
+import ChatbotBubble from "./components/ChatbotBubble";
 
 const queryClient = new QueryClient();
 
@@ -34,12 +36,14 @@ const App = () => (
             <Route path="/videos" element={<VideosPage />} />
             <Route path="/videos/:id" element={<VideoDetailPage />} />
             <Route path="/tour" element={<TourPage />} />
-            <Route path="/tour/:id" element={<TourDetailPage />} />
+            <Route path="/evento/:id" element={<TourDetailPage />} />
             <Route path="/info" element={<InfoPage />} />
+            <Route path="/comunidad" element={<CommunityPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <ChatbotBubble />
     </TooltipProvider>
   </QueryClientProvider>
 );

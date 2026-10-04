@@ -1,67 +1,106 @@
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink, Clock, MapPin } from "lucide-react";
-import { tourDates } from "@/data/mockData";
+import { Calendar, MapPin, Users, ArrowLeft } from "lucide-react";
 
 const TourDetailPage = () => {
   const { id } = useParams();
-  const event = tourDates.find((t) => t.id === id);
+  const [evento, setEvento] = useState<any>(null);
+  const [cargando, setCargando] = useState(true);
 
-  if (!event) {
+  useEffect(() => {
+    fetch(`http://localhost:1337/api/eventos/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        // Strapi v4/v5 devuelve un solo objeto en data.data
+        setEvento(data.data);
+        setCargando(false);
+      })
+      .catch((error) => {
+        console.error("Error al cargar el detalle del evento:", error);
+        setCargando(false);
+      });
+  }, [id]);
+
+  if (cargando) {
     return (
-      <div className="min-h-screen bg-background pt-24 px-6 flex items-center justify-center">
-        <p className="text-foreground/60">Evento no encontrado.</p>
+      <div className="min-h-screen bg-background pt-24 flex justify-center text-foreground/60">
+        Cargando detalles del concierto...
       </div>
     );
   }
 
+  if (!evento) {
+    return (
+      <div className="min-h-screen bg-background pt-24 flex flex-col items-center text-foreground">
+        <h2 className="text-2xl font-bold mb-4">Evento no encontrado</h2>
+        <Link to="/tour" className="text-purple-500 hover:underline">
+          Volver a la cartelera
+        </Link>
+      </div>
+    );
+  }
+
+  // Ajuste según la estructura de tu versión de Strapi
+  const info = evento.attributes || evento;
+  const fechaObj = new Date(info.fechaHora || info.fecha);
+
   return (
     <div className="min-h-screen bg-background pt-24 pb-16 px-6">
-      <div className="max-w-4xl mx-auto">
-        <Link to="/tour" className="inline-flex items-center gap-2 text-foreground/60 hover:text-foreground transition-colors mb-8">
-          <ArrowLeft className="w-4 h-4" /> Volver a los Eventos
+      <div className="max-w-3xl mx-auto">
+        <Link
+          to="/tour"
+          className="inline-flex items-center text-foreground/60 hover:text-purple-400 transition-colors mb-8"
+        >
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Volver a Eventos
         </Link>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-8">
-          <div>
-            <p className="text-6xl font-bold text-foreground mb-2">{event.day}</p>
-            <p className="text-foreground/60 text-2xl uppercase tracking-wide">{event.month} 2024</p>
-          </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="glass-card p-8 md:p-12 rounded-2xl border border-neutral-800"
+        >
+          <span className="text-purple-500 font-semibold tracking-wider uppercase text-sm mb-4 block">
+            {info.precio || "Entrada General"}
+          </span>
 
-          <div>
-            <h1 className="text-4xl font-bold text-foreground mb-4">{event.eventName}</h1>
-            <div className="flex flex-wrap items-center gap-6 text-foreground/70">
-              <span className="flex items-center gap-2"><MapPin className="w-4 h-4" /> {event.venue} — {event.city}, {event.state}</span>
-              {event.doors && <span className="flex items-center gap-2"><Clock className="w-4 h-4" /> Doors {event.doors}</span>}
-              {event.showTime && <span>Show {event.showTime}</span>}
+          <h1 className="text-4xl md:text-6xl font-black text-foreground mb-6 leading-tight">
+            {info.titulo}
+          </h1>
+
+          <div className="flex flex-wrap gap-6 mb-8 text-foreground/80">
+            <div className="flex items-center gap-2">
+              <Calendar className="w-5 h-5 text-purple-400" />
+              <span>
+                {fechaObj.toLocaleDateString("es-AR", {
+                  weekday: "long",
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin className="w-5 h-5 text-purple-400" />
+              <span>{info.lugar}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Users className="w-5 h-5 text-purple-400" />
+              <span>Capacidad: {info.capacidadMaxima || info.capacidad}</span>
             </div>
           </div>
 
-          {event.description && (
-            <p className="text-foreground/80 leading-relaxed text-lg">{event.description}</p>
-          )}
+          <div className="prose prose-invert max-w-none mb-10 text-foreground/70">
+            <p className="text-lg leading-relaxed">
+              {info.descripcion ||
+                "Acompañanos en una noche inolvidable a puro ritmo. Las puertas se abrirán dos horas antes del inicio del show."}
+            </p>
+          </div>
 
-          {event.prices && (
-            <div>
-              <h3 className="label-uppercase mb-4">Tickets</h3>
-              <div className="space-y-3">
-                {event.prices.map((p) => (
-                  <div key={p.tier} className="platform-link">
-                    <span className="text-foreground font-medium">{p.tier}</span>
-                    <span className="text-foreground font-bold">{p.price}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {event.status === "available" && event.ticketUrl && (
-            <a href={event.ticketUrl} className="btn-primary inline-flex items-center gap-2" target="_blank" rel="noopener noreferrer">
-              Get Tickets <ExternalLink className="w-4 h-4" />
-            </a>
-          )}
-          {event.status === "sold-out" && <span className="status-sold-out inline-block">Sold Out</span>}
-          {event.status === "presale" && <span className="status-presale inline-block">Presale Coming Soon</span>}
+          <button className="w-full md:w-auto bg-purple-600 hover:bg-purple-500 text-white font-bold py-4 px-10 rounded-full transition-transform transform hover:scale-105">
+            Reservar Entrada
+          </button>
         </motion.div>
       </div>
     </div>
