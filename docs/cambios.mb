@@ -1,0 +1,15 @@
+## 1. Paleta de colores
+- Cambios: la paleta monocromática (blanco, negro y grises) se reemplazó por la paleta graffiti de LiveVibe (negro tinta, crema, fucsia, amarillo, azul cielo, naranja y rosa chicle), usando las variables CSS del template.
+- Por qué: darle al sitio la identidad visual de LiveVibe, más rica y acorde a la música en vivo.
+
+## 2. Tipografías
+- Cambios: las fuentes del template (Anton para títulos y Space Grotesk para el texto) se reemplazaron por Bungee para los títulos y DM Sans para el texto. Se cambió el enlace de Google Fonts y las variables --font-display y --font-body.
+- Por qué: Bungee tiene un estilo de cartel callejero que refuerza la estética graffiti de LiveVibe, y DM Sans mantiene el texto claro y legible.
+
+## 3. Nombre y datos de contacto
+- Cambios: el nombre del artista del template ("Cassidy Lane") se reemplazó por "LiveVibe" en la cabecera, el texto grande de la portada, el título de la pestaña y las etiquetas meta. El Instagram y el correo de contacto se reemplazaron por datos ficticios de LiveVibe (@livevibe y contacto@livevibe.com).
+- Por qué: el template estaba pensado para el sitio de un solo artista, y debía pasar a representar a la plataforma LiveVibe.
+
+## 4. Fondo de la portada
+- Cambios: la fotografía del artista que ocupaba la portada se reemplazó por un fondo propio en SVG: anillos de parlante en los colores de la paleta, salpicaduras de aerosol, trazos de marcador y una textura de grano sobre negro tinta.
+- Por qué: la foto no tenía relación con LiveVibe y tapaba la paleta nueva. El fondo propio comunica música en vivo y mantiene la estética graffiti en la primera pantalla del sitio.

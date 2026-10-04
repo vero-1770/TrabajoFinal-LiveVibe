@@ -10,7 +10,7 @@ const TourDetailPage = () => {
   if (!event) {
     return (
       <div className="min-h-screen bg-background pt-24 px-6 flex items-center justify-center">
-        <p className="text-foreground/60">Event not found.</p>
+        <p className="text-foreground/60">Evento no encontrado.</p>
       </div>
     );
   }
@@ -19,7 +19,7 @@ const TourDetailPage = () => {
     <div className="min-h-screen bg-background pt-24 pb-16 px-6">
       <div className="max-w-4xl mx-auto">
         <Link to="/tour" className="inline-flex items-center gap-2 text-foreground/60 hover:text-foreground transition-colors mb-8">
-          <ArrowLeft className="w-4 h-4" /> Back to Tour
+          <ArrowLeft className="w-4 h-4" /> Volver a los Eventos
         </Link>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-8">
