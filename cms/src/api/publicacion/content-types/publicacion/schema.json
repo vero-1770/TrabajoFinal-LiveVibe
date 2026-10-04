@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "publicaciones",
+  "info": {
+    "singularName": "publicacion",
+    "pluralName": "publicaciones",
+    "displayName": "Publicacion"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "autor": {
+      "type": "string"
+    },
+    "cancionFavorita": {
+      "type": "string"
+    },
+    "contenido": {
+      "type": "text"
+    },
+    "likes": {
+      "type": "integer"
+    }
+  }
+}

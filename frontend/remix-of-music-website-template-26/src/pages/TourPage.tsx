@@ -54,7 +54,7 @@ const TourPage = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <Link
-                    to={`/tour/${evento.id}`}
+                    to={`/evento/${evento.id}`}
                     className="glass-card p-6 flex flex-col md:flex-row md:items-center md:justify-between hover:bg-[hsl(var(--glass-hover))] transition-colors group block border border-neutral-800 rounded-lg"
                   >
                     <div className="flex-shrink-0 mb-4 md:mb-0 md:mr-8 text-center min-w-[60px]">
