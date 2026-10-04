@@ -16,6 +16,7 @@ import TourDetailPage from "./pages/TourDetailPage";
 import InfoPage from "./pages/InfoPage";
 import NotFound from "./pages/NotFound";
 import CommunityPage from "./pages/CommunityPage";
+import ChatbotBubble from "./components/ChatbotBubble";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <ChatbotBubble />
     </TooltipProvider>
   </QueryClientProvider>
 );
