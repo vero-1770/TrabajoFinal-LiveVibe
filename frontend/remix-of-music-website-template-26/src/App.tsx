@@ -17,6 +17,7 @@ import InfoPage from "./pages/InfoPage";
 import NotFound from "./pages/NotFound";
 import CommunityPage from "./pages/CommunityPage";
 import ChatbotBubble from "./components/ChatbotBubble";
+import Top100Page from "./pages/Top100Page";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
             <Route path="/evento/:id" element={<TourDetailPage />} />
             <Route path="/info" element={<InfoPage />} />
             <Route path="/comunidad" element={<CommunityPage />} />
+            <Route path="/top-100" element={<Top100Page />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

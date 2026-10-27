@@ -6,6 +6,7 @@ const navLinks = [
   { label: "Artistas", path: "/music" },
   { label: "Merch", path: "/merch" },
   /*  { label: "Videos", path: "/videos" }, */
+  { label: "Top 100", path: "/top-100" },
   { label: "Eventos", path: "/tour" },
   /*  { label: "Info", path: "/info" }, */
   { label: "Comunidad", path: "/comunidad" },
